@@ -14,6 +14,28 @@ function createCard(name, description, pictureUrl, starts, ends, location) {
     `;
 }
 
+function pending() {
+    return `
+
+        <div class="card" aria-hidden="true">
+        <img src="..." class="card-img-top" alt="...">
+        <div class="card-body">
+        <h5 class="card-title placeholder-glow">
+            <span class="placeholder col-6"></span>
+        </h5>
+        <p class="card-text placeholder-glow">
+            <span class="placeholder col-7"></span>
+            <span class="placeholder col-4"></span>
+            <span class="placeholder col-4"></span>
+            <span class="placeholder col-6"></span>
+            <span class="placeholder col-8"></span>
+        </p>
+        <a href="#" tabindex="-1" class="btn btn-primary disabled placeholder col-6"></a>
+        </div>
+    </div>
+    `
+}
+
 window.addEventListener('DOMContentLoaded', async () => {
 
     const url = 'http://localhost:8000/api/conferences/';
@@ -21,7 +43,7 @@ window.addEventListener('DOMContentLoaded', async () => {
     try {
         const response = await fetch(url);
 
-        if (response.ok) {
+        if (!response.ok) {
             // Figure out what to do when the response is bad
             const alert = document.querySelector('.alert');
             alert.innerHTML = `Response failed. Error code ${response.status}.`
@@ -38,6 +60,10 @@ window.addEventListener('DOMContentLoaded', async () => {
                 // const conference = data.conferences[0];
                 // const nameTag = document.querySelector('.card-title');
                 // nameTag.innerHTML = conference.name;
+
+                // const html_pending = pending();
+                // columns[i % 3].innerHTML += html_pending;
+
                 let conference = data.conferences[i];
                 const detailUrl = `http://localhost:8000${conference.href}`;
                 const detailResponse = await fetch(detailUrl);
@@ -58,6 +84,7 @@ window.addEventListener('DOMContentLoaded', async () => {
                     //     column.innerHTML += html;
                     // }
 
+                    // columns[i % 3].innerHTML -= html_pending;
                     columns[i % 3].innerHTML += html;
                     // i++;
 
