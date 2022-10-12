@@ -21,9 +21,12 @@ window.addEventListener('DOMContentLoaded', async () => {
     try {
         const response = await fetch(url);
 
-        if (!response.ok) {
+        if (response.ok) {
             // Figure out what to do when the response is bad
+            const alert = document.querySelector('.alert');
+            alert.innerHTML = `Response failed. Error code ${response.status}.`
         } else {
+            console.log(response);
             const data = await response.json();
             const columns = document.querySelectorAll('.col');
             // console.log(columns);
@@ -72,6 +75,8 @@ window.addEventListener('DOMContentLoaded', async () => {
         }
     } catch (e) {
         // Figure out what to do if an error is raised
+        const alert = document.querySelector('.alert');
+        alert.innerHTML = `Something went wrong.`
     }
 
 });
