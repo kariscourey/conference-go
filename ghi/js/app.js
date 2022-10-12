@@ -36,6 +36,14 @@ function pending() {
     `
 }
 
+function alert() {
+    return `
+    <div class="alert alert-primary" role="alert">
+        Something went wrong.
+    </div>
+    `
+}
+
 window.addEventListener('DOMContentLoaded', async () => {
 
     const url = 'http://localhost:8000/api/conferences/';
@@ -45,10 +53,11 @@ window.addEventListener('DOMContentLoaded', async () => {
 
         if (!response.ok) {
             // Figure out what to do when the response is bad
-            const alert = document.querySelector('.alert');
-            alert.innerHTML = `Response failed. Error code ${response.status}.`
+            const alert_html = alert();
+            const alert = document.querySelector('#alert');
+            alert.innerHTML = alert_html
         } else {
-            console.log(response);
+            // console.log(response);
             const data = await response.json();
             const columns = document.querySelectorAll('.col');
             // console.log(columns);
@@ -102,8 +111,9 @@ window.addEventListener('DOMContentLoaded', async () => {
         }
     } catch (e) {
         // Figure out what to do if an error is raised
-        const alert = document.querySelector('.alert');
-        alert.innerHTML = `Something went wrong.`
+        const alert_html = alert();
+        const alert = document.querySelector('#alert');
+        alert.innerHTML = alert_html
     }
 
 });
