@@ -6,19 +6,19 @@ const alert = () => {
     `
 };
 
-const selectHTML = (values) => {
+// const selectHTML = (values) => {
 
-    let select_html = `<option selected value="">Choose a conference</option>`;
+//     let select_html = `<option selected value="">Choose a conference</option>`;
 
-    for (let i of values) {
-        select_html += `
-        <option value="${i.id}">${i.name}</option>
-        `
-        console.log(i);
-    };
+//     for (let i of values) {
+//         select_html += `
+//         <option value="${i.id}">${i.name}</option>
+//         `
+//         console.log(i);
+//     };
 
-    return select_html;
-};
+//     return select_html;
+// };
 
 
 
@@ -33,10 +33,12 @@ window.addEventListener('DOMContentLoaded', async () => {
         const formData = new FormData(formTag);
         const body = JSON.stringify(Object.fromEntries(formData));  //returns key value pairs
 
+        // console.log(body);
+
         const select = document.querySelector('#conference');
         const select_val = select.options[select.selectedIndex].value
 
-        const presentationUrl = `http://localhost:8000/api/conferences/${select_val}/presentations/`;
+        const presentationUrl = `http://localhost:8000${select_val}presentations/`;
         const fetchConfig = {
             method: 'post',
             body: body,
@@ -66,12 +68,18 @@ window.addEventListener('DOMContentLoaded', async () => {
             alert_tag.innerHTML = alert_html
         } else {
             const data = await response.json();
-
             const selectTag = document.querySelector('#conference');
-            const values = data.conferences;
-            const select_html = selectHTML(values);
-            selectTag.innerHTML = select_html;
 
+            // const values = data.conferences;
+            // const select_html = selectHTML(values);
+            // selectTag.innerHTML = select_html;
+
+            for (let conference of data.conferences) {
+                const option = document.createElement('option');
+                option.value = conference.href;
+                option.innerHTML = conference.name;
+                selectTag.appendChild(option);
+              }
         }
     } catch (e) {
         let alert_html = alert();
