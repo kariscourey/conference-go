@@ -15,21 +15,26 @@ const payloadCookie = await getCookie('jwt_access_payload'); //.get('jwt_access_
 if (payloadCookie) {
   // The cookie value is a JSON-formatted string, so parse it
   const encodedPayload = JSON.parse(payloadCookie.value);
-//   console.log(encodedPayload);
+  // console.log(encodedPayload);
 
   // Convert the encoded payload from base64 to normal string
   const decodedPayload = atob(encodedPayload) // FINISH THIS
-//   console.log(decodedPayload);
+  // console.log(decodedPayload);
 
   // The payload is a JSON-formatted string, so parse it
   const payload = JSON.parse(decodedPayload) // FINISH THIS
 
   // Print the payload
-//   console.log(payload);
+  // console.log(payload);
+  // console.log(payload.user);
+  // console.log(payload.user.perms);
+  // console.log(payload.user.perms.includes('events.add_conference'));
+  // console.log(payload?.user.perms.includes('events.add_conference'));
+
 
 // //   Check if "events.add_conference" is in the permissions.
 // //   If it is, remove 'd-none' from the link
-    if (payload.user.perms['events.add_conference']) {
+    if (payload.user.perms.includes('events.add_conference')) {
         var new_conf = document.getElementById("new_conf");
         var new_pres = document.getElementById("new_pres");
         new_conf.classList.remove("d-none");
@@ -39,8 +44,9 @@ if (payloadCookie) {
 
 // //   Check if "events.add_location" is in the permissions.
 // //   If it is, remove 'd-none' from the link
-    if (payload.user.perms['events.add_location']) {
+    if (payload.user.perms.includes('events.add_location')) {
         var new_loc = document.getElementById("new_loc");
         new_loc.classList.remove("d-none");
     }
+
 }
