@@ -15,6 +15,8 @@ class AttendConferenceForm extends React.Component {
     this.handleChangeConference = this.handleChangeConference.bind(this);
     this.handleChangeEmail = this.handleChangeEmail.bind(this);
     this.handleChangeName = this.handleChangeName.bind(this);
+
+    // console.log(props);
   }
 
   async componentDidMount() {

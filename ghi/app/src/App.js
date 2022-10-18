@@ -4,6 +4,7 @@ import LocationForm from './LocationForm';
 import ConferenceForm from './ConferenceForm';
 import PresentationForm from './PresentationForm';
 import AttendConferenceForm from './AttendConferenceForm';
+import MainPage from './MainPage';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 function App(props) {
@@ -15,12 +16,12 @@ function App(props) {
       <Nav />
       <div className="container">
         <Routes>
-            <Route path="/" element={<App />}></Route>
+            <Route index element={<MainPage />} />
             <Route path="conferences">
                 <Route path="new" element={<ConferenceForm />}></Route>
             </Route>
             <Route path="attendees">
-                <Route path="" element={<AttendeesList />}></Route>
+                <Route path=""  element={<AttendeesList attendees={props.attendees} />}></Route>
                 <Route path="new" element={<AttendConferenceForm />}></Route>
             </Route>
             <Route path="locations">

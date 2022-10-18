@@ -1,4 +1,8 @@
 function AttendeesList(props) {
+
+    console.log(props);
+    console.log(props.attendees);
+
     return (
 
         <table className="table table-striped">
