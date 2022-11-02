@@ -1,5 +1,5 @@
 # Conference GO
-Conference-management solution designed for planning and running  conferences with attendees and presenters. Supports location, conference, and presentation creation and management.
+Conference-management solution designed for planning and running  conferences with attendees and presenters. Supports location, conference, and presentation creation and management. Features data interactions with RESTful APIs.
 
 ## Get started
 
