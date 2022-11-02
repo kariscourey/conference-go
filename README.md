@@ -3,13 +3,13 @@ Conference-management solution designed for planning and running  conferences wi
 
 ## Get started
 
-#### Requirements
+### Requirements
 Docker
 
-#### Build image
+### Build image
 docker compose build
 
-#### Run services
+### Run services
 docker compose up
 
 
