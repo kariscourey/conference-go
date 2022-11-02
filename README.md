@@ -16,7 +16,7 @@ docker compose up
 
 ## Back-End Design
 
-### Conference GO monolith
+### Conference GO microservice
 Conference-management project within the monolith directory. Contains apps accounts, events, and presentations.
 
 #### Accounts
