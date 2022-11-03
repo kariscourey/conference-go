@@ -1,17 +1,22 @@
 # Conference GO
 Conference-management solution designed for planning and running  conferences with attendees and presenters. Supports location, conference, and presentation creation and management. Features data interactions with RESTful APIs.
 
-## Tools, techniques, languages
+## Key highlights
 
 ### Tools
 Django <br/>
 Docker <br/>
 React <br/>
+RabbitMQ <br/>
 
 ### Techniques
+#### Back-End
 RESTful API routes <br/>
 Templating <br/>
 Microservices <br/>
+IPC integration (polling, queues, pub-sub) <br/>
+
+#### Front-End
 React Hooks <br/>
 
 ### Languages
@@ -52,7 +57,8 @@ Leverages pika and rabbitmq to utilize queueing IPC integration pattern to distr
 
 ### Attendees microservice
 Attendees-management project within the attendees_microservice directory. Contains app attendees. </br>
-Leverages pika to utilize pub-sub IPC integration pattern to distribute information regarding attendee creation.
+Leverages pika to utilize pub-sub IPC integration pattern to distribute information regarding attendee creation. </br>
+Utilizes polling to obtain information regarding Conference instances.
 
 #### Attendees
 Centers on the Attendee model, instances of which describe attendees. Attendee model includes foreign key reference to Conference. Related views permit CRUD functionality for model instances. Badge model instances reference Attendee via foreign key.
@@ -71,3 +77,6 @@ Standard React class components that permit the creation of instances per the ti
 
 ### Lists
 Standard React class components that permit the listing of instances per the title of the component.
+
+### Detail
+Standard React function components, utilizing Hooks, that permit the detailing of instances per the title of the component.
