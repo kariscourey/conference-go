@@ -1,6 +1,26 @@
 # Conference GO
 Conference-management solution designed for planning and running  conferences with attendees and presenters. Supports location, conference, and presentation creation and management. Features data interactions with RESTful APIs.
 
+## Tools, techniques, languages
+
+### Tools
+Django <br/>
+Docker <br/>
+React <br/>
+
+### Techniques
+RESTful API routes <br/>
+Templating <br/>
+Microservices <br/>
+React Hooks <br/>
+
+### Languages
+Python 3 <br/>
+JavaScript ES6+ <br/>
+HTML <br/>
+CSS <br/>
+
+
 ## Get started
 
 ### Requirements

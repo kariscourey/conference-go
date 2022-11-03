@@ -1,25 +1,16 @@
 from django.db import IntegrityError
 from django.http import HttpResponse, JsonResponse
 from django.views.decorators.http import require_http_methods
-from django.utils import timezone
 import json
 import pika
 
-from common.json import ModelEncoder
+
 from .models import User
 
-
-class AccountModelEncoder(ModelEncoder):
-    model = User
-    properties = ["email", "first_name", "last_name"]
-
-
-class AccountInfoModelEncoder(ModelEncoder):
-    model = User
-    properties = ["email", "first_name", "last_name", "is_active"]
-
-    def get_extra_data(self, o):
-        return {"updated": timezone.now()}
+from .encoders import (
+    AccountListEncoder,
+    AccountDetailEncoder,
+)
 
 
 def send_account_data(account):
@@ -28,7 +19,7 @@ def send_account_data(account):
     channel = connection.channel()
     channel.exchange_declare(exchange="account_info", exchange_type="fanout")
 
-    message = json.dumps(account, cls=AccountInfoModelEncoder)
+    message = json.dumps(account, cls=AccountDetailEncoder)
     channel.basic_publish(
         exchange="account_info",
         routing_key="",
@@ -85,7 +76,7 @@ def api_list_accounts(request):
         users = User.objects.exclude(email="").filter(is_active=True)
         return JsonResponse(
             {"accounts": users},
-            encoder=AccountModelEncoder,
+            encoder=AccountListEncoder,
         )
     else:
         status_code, response_content, _ = create_user(request.body)
@@ -93,7 +84,7 @@ def api_list_accounts(request):
             send_account_data(response_content)
         response = JsonResponse(
             response_content,
-            encoder=AccountModelEncoder,
+            encoder=AccountListEncoder,
             safe=False,
         )
         response.status_code = status_code
@@ -116,7 +107,7 @@ def api_account_detail(request, email):
     if request.method == "GET":
         return JsonResponse(
             account,
-            encoder=AccountModelEncoder,
+            encoder=AccountListEncoder,
             safe=False,
         )
     elif request.method == "PUT":
@@ -146,7 +137,7 @@ def api_account_detail(request, email):
             send_account_data(account)
         response = JsonResponse(
             response_content,
-            encoder=AccountModelEncoder,
+            encoder=AccountListEncoder,
             safe=False,
         )
         response.status_code = status
