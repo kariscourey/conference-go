@@ -1,82 +1,55 @@
 # Conference GO
-Conference-management solution designed for planning and running  conferences with attendees and presenters. Supports location, conference, and presentation creation and management. Features data interactions with RESTful APIs.
-
-## Key highlights
-
-### Tools
-Django <br/>
-Docker <br/>
-React <br/>
-RabbitMQ <br/>
-
-### Techniques
-#### Back-End
-RESTful API routes <br/>
-Templating <br/>
-Microservices <br/>
-IPC integration (polling, queues, pub-sub) <br/>
-
-#### Front-End
-React Hooks <br/>
-
-### Languages
-Python 3 <br/>
-JavaScript ES6+ <br/>
-HTML <br/>
-CSS <br/>
+Conference-management solution designed for planning and running  conferences with attendees and presenters. Supports location, conference, and presentation creation and management. Features Django, React, and data interactions with RESTful APIs.
 
 
-## Get started
+## Design
+- [Design summary](docs/design-summary.md)
+- [API design](docs/api-design.md)
+- [Data model](docs/data-model.md)
 
-### Requirements
-Docker
-
-### Build image
-docker compose build
-
-### Run services
-docker compose up
+## Methods
+- [Methods](docs/methods.md)
 
 
-
-## Back-End Design
-
-### Conference GO microservice
-Conference-management project within the monolith directory. Contains apps accounts, events, and presentations.
-
-#### Accounts
-Leverages Django's UserCreationForm, LoginView, and LogoutView to be able to create instances of users with accounts, present a login interface, and present a logout interface.
-
-#### Events
-Centers on the Conference model, instances of which describe conferences. Conference model includes foreign key reference to Location model, which contains a foreign key reference to State model. Related views permit CRUD functionality for model instances.
-
-#### Presentations
-Centers on the Presentation model, instances of which describe presentations. Presentation model includes foreign key reference to Status. Related views permit CRUD functionality for model instances. </br>
-Leverages pika and rabbitmq to utilize queueing IPC integration pattern to distribute information regarding presentation approval and rejection.
+## Intended Market
+Companies who intend to have a hub for all things conferences and utilize a sophisticated solution for managing attendees, presenters, and presentations.
 
 
-### Attendees microservice
-Attendees-management project within the attendees_microservice directory. Contains app attendees. </br>
-Leverages pika to utilize pub-sub IPC integration pattern to distribute information regarding attendee creation. </br>
-Utilizes polling to obtain information regarding Conference instances.
-
-#### Attendees
-Centers on the Attendee model, instances of which describe attendees. Attendee model includes foreign key reference to Conference. Related views permit CRUD functionality for model instances. Badge model instances reference Attendee via foreign key.
-
-### Presentation workflow microservice
-Consists of consumer to process presentation approval and rejection output from monolith/presentations.
-
-### Maildir microservice
-Utilizes mailhog to mimic email service.
+## Functionality
+- Create and view attendees
+- Create and view presenters
+- Create and view presentations
+- Create and view conferences
+- Create and view locations
 
 
-## Front-End Design
+## Project Initialization
 
-### Forms
-Standard React class components that permit the creation of instances per the title of the component.
+To fully enjoy this application on your local machine, please ensure you have <b>Docker</b> installed and follow these steps:
 
-### Lists
-Standard React class components that permit the listing of instances per the title of the component.
+1. Clone the repository down to your local machine
+2. CD into the new project directory
+3. Create `.env` and include the following code:
 
-### Detail
-Standard React function components, utilizing Hooks, that permit the detailing of instances per the title of the component.
+
+</br>
+OPEN_WEATHER_API_KEY="XXXXXXXXXXXX"
+</br>
+PEXELS_API_KEY="XXXXXXXXXXXX"
+</br>
+DJWTO_SIGNING_KEY=abcdefg
+
+Replace XXXXXXXXXXXX with your [OPEN WEATHER API](https://openweathermap.org/api) key
+</br>
+
+Replace XXXXXXXXXXXX with your [PEXELS API](https://www.pexels.com/api/) key
+
+
+4. Ensure <b>Docker</b> is running on your machine
+5. Run `docker compose build`
+6. Run `docker compose up`
+
+
+## Project Deactivation
+1. Stop containers
+2. Run `docker compose down`
