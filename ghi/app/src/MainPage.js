@@ -3,17 +3,13 @@ import { Link } from 'react-router-dom';
 
 function ConferenceColumn(props) {
 
-  // console.log(props);
-
   return (
     <div className="col">
       {props.list.map(data => {
         const conference = data.conference;
-        // console.log(conference);
-        // console.log(props.list);
         return (
           <div key={conference.href} className="card mb-3 shadow">
-            <img src={conference.location.picture_url} className="card-img-top" />
+            <img alt='conference location' src={conference.location.picture_url} className="card-img-top" />
             <div className="card-body">
               <h5 className="card-title">{conference.name}</h5>
               <h6 className="card-subtitle mb-2 text-muted">
