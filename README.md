@@ -33,14 +33,12 @@ To fully enjoy this application on your local machine, please ensure you have <b
 
 ```
 OPEN_WEATHER_API_KEY="XXXXXXXXXXXX"
-PEXELS_API_KEY="XXXXXXXXXXXX"
+PEXELS_API_KEY="YYYYYYYYYYYY"
 DJWTO_SIGNING_KEY=abcdefg
 ```
 
-Replace XXXXXXXXXXXX with your [OPEN WEATHER API](https://openweathermap.org/api) key
-</br>
-
-Replace XXXXXXXXXXXX with your [PEXELS API](https://www.pexels.com/api/) key
+>Replace XXXXXXXXXXXX with your [OPEN WEATHER API](https://openweathermap.org/api) key
+>Replace YYYYYYYYYYYY with your [PEXELS API](https://www.pexels.com/api/) key
 
 
 4. Ensure <b>Docker</b> is running on your machine
