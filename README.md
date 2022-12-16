@@ -28,7 +28,7 @@ To fully enjoy this application on your local machine, please ensure you have <b
 
 1. Clone the repository down to your local machine
 2. CD into the new project directory
-3. Create <b>.env<b> and include the following code:
+3. Create <b>.env</b> and include the following code:
 
 
 ```
@@ -37,7 +37,7 @@ PEXELS_API_KEY="YYYYYYYYYYYY"
 DJWTO_SIGNING_KEY=abcdefg
 ```
 
->Replace XXXXXXXXXXXX with your [OPEN WEATHER API](https://openweathermap.org/api) key
+>Replace XXXXXXXXXXXX with your [OPEN WEATHER API](https://openweathermap.org/api) key <br />
 >Replace YYYYYYYYYYYY with your [PEXELS API](https://www.pexels.com/api/) key
 
 
