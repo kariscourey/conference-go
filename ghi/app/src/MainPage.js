@@ -34,7 +34,6 @@ function ConferenceColumn(props) {
 class MainPage extends React.Component {
   constructor(props) {
     super(props);
-    // console.log(props);
     this.state = {
       conferenceColumns: [[], [], []],
     };
@@ -48,7 +47,6 @@ class MainPage extends React.Component {
       if (response.ok) {
         // Get the list of conferences
         const data = await response.json();
-        // console.log(data);
 
         // Create a list of for all the requests and
         // add all of the requests to it
@@ -56,13 +54,11 @@ class MainPage extends React.Component {
         for (let conference of data.conferences) {
           const detailUrl = `http://localhost:8000${conference.href}`;
           requests.push(fetch(detailUrl));
-          // console.log(requests);
         }
 
         // Wait for all of the requests to finish
         // simultaneously
         const responses = await Promise.all(requests);
-        // console.log(responses);
 
         // Set up the "columns" to put the conference
         // information into
@@ -75,7 +71,6 @@ class MainPage extends React.Component {
         for (const conferenceResponse of responses) {
           if (conferenceResponse.ok) {
             const details = await conferenceResponse.json();
-            // console.log(details);
             conferenceColumns[i].push(details);
             i = i + 1;
             if (i > 2) {
@@ -85,7 +80,6 @@ class MainPage extends React.Component {
             console.error(conferenceResponse);
           }
         }
-        // console.log(conferenceColumns);
 
         // Set the state to the new list of three lists of
         // conferences

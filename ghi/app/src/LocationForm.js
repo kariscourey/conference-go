@@ -22,9 +22,7 @@ class LocationForm extends React.Component {
 
         if (response.ok) {
             const data = await response.json();
-            // console.log(data);
             this.setState({ states: data });
-            // console.log(this.state);
         }
     }
 
@@ -54,7 +52,6 @@ class LocationForm extends React.Component {
         data.room_count = data.roomCount;
         delete data.roomCount;
         delete data.states;
-        console.log(data);
 
         const body = JSON.stringify(data);
 
@@ -70,8 +67,6 @@ class LocationForm extends React.Component {
         const response = await fetch(locationUrl, fetchConfig);
 
         if (response.ok) {
-            const newLocation = await response.json();
-            console.log(newLocation);
 
             const cleared = {
                 name: '',

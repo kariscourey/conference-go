@@ -26,9 +26,7 @@ class PresentationForm extends React.Component {
 
         if (response.ok) {
             const data = await response.json();
-            // console.log(data.conferences);
             this.setState({ conferences: data.conferences });
-            // console.log(this.state);
         }
     }
 
@@ -72,7 +70,6 @@ class PresentationForm extends React.Component {
         delete data.presenterEmail;
         delete data.companyName;
         delete data.conferences;
-        console.log(data);
 
         const body = JSON.stringify(data);
 
@@ -88,8 +85,6 @@ class PresentationForm extends React.Component {
         const response = await fetch(presentationUrl, fetchConfig);
 
         if (response.ok) {
-            const newPresentation = await response.json();
-            console.log(newPresentation);
 
             const cleared = {
                 presenterName: '',

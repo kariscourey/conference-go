@@ -29,10 +29,7 @@ class ConferenceForm extends React.Component {
 
     if (response.ok) {
       const data = await response.json();
-      // console.log(data);
-      // console.log(data.locations);
       this.setState({ locations: data.locations });
-      // console.log(this.state);
     }
   }
 
@@ -80,7 +77,6 @@ class ConferenceForm extends React.Component {
     delete data.maxAttendees;
     delete data.locations;
 
-    console.log(data);
 
     const body = JSON.stringify(data);
 
@@ -96,8 +92,6 @@ class ConferenceForm extends React.Component {
     const response = await fetch(conferenceUrl, fetchConfig);
 
     if (response.ok) {
-      const newConference = await response.json();
-      console.log(newConference);
 
       const cleared = {
         name: '',
