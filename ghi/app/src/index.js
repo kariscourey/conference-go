@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './index.css';
 import App from './App';
+import './index.css';
 import reportWebVitals from './reportWebVitals';
 // index.js = anchor
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -16,19 +16,11 @@ root.render(
 // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 reportWebVitals();
 
-// const response = await fetch('http://localhost:8001/api/attendees/');
-// console.log(response);
-
-// functions that return JSX = components
 async function loadAttendees() {
   const response = await fetch('http://localhost:8001/api/attendees/');
-  // console.log(response);
 
   if (response.ok) {
     const data = await response.json();
-    // console.log("here!!");
-    // console.log(data);
-    // console.log(data.attendees);
     root.render(
       <React.StrictMode>
         <App attendees={data.attendees} />

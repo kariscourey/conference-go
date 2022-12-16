@@ -28,7 +28,7 @@ while True:
             title = data["title"]
             send_mail(
                 "Your presentation has been rejected",
-                f"We're sorry, {name}, but your presentation {title} has been rejected",
+                f"We're sorry, {name}, but your presentation {title} has been rejected",  # noqa E502
                 "admin@conferece.go",
                 [email],
                 fail_silently=False,
@@ -41,7 +41,7 @@ while True:
             title = data["title"]
             send_mail(
                 "Your presentation has been accepted",
-                f"{name}, we're happy to tell you that your presentation {title} has been accepted",
+                f"{name}, we're happy to tell you that your presentation {title} has been accepted",  # noqa E502
                 "admin@conferece.go",
                 [email],
                 fail_silently=False,

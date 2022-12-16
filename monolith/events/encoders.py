@@ -2,13 +2,10 @@ from common.json import ModelEncoder
 
 from .models import Conference, Location
 
+
 class LocationListEncoder(ModelEncoder):
     model = Location
-    properties = [
-        "id",
-        "name",
-        "picture_url"
-        ]
+    properties = ["id", "name", "picture_url"]
 
 
 class LocationDetailEncoder(ModelEncoder):
@@ -28,10 +25,7 @@ class LocationDetailEncoder(ModelEncoder):
 
 class ConferenceListEncoder(ModelEncoder):
     model = Conference
-    properties = [
-        "id",
-        "name"
-        ]
+    properties = ["id", "name"]
 
 
 class ConferenceDetailEncoder(ModelEncoder):

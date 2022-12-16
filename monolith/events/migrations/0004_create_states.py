@@ -83,9 +83,7 @@ def down(apps, schema):
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('events', '0003_alter_state_abbreviation_alter_state_name'),
+        ("events", "0003_alter_state_abbreviation_alter_state_name"),
     ]
 
-    operations = [
-        migrations.RunPython(up, down)
-    ]
+    operations = [migrations.RunPython(up, down)]

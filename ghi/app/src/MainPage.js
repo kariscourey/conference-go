@@ -89,7 +89,7 @@ class MainPage extends React.Component {
 
         // Set the state to the new list of three lists of
         // conferences
-        this.setState({conferenceColumns: conferenceColumns});
+        this.setState({ conferenceColumns: conferenceColumns });
       }
     } catch (e) {
       console.error(e);

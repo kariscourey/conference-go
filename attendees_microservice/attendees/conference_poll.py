@@ -10,7 +10,7 @@ os.environ.setdefault("DJANGO_SETTINGS_MODULE", "attendees_bc.settings")
 django.setup()
 
 
-from attendees.models import ConferenceVO
+from attendees.models import ConferenceVO  # noqa E722
 
 
 def get_conferences():

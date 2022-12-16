@@ -6,18 +6,18 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('events', '0002_location_picture_url'),
+        ("events", "0002_location_picture_url"),
     ]
 
     operations = [
         migrations.AlterField(
-            model_name='state',
-            name='abbreviation',
+            model_name="state",
+            name="abbreviation",
             field=models.CharField(max_length=2, unique=True),
         ),
         migrations.AlterField(
-            model_name='state',
-            name='name',
+            model_name="state",
+            name="name",
             field=models.CharField(max_length=40),
         ),
     ]

@@ -193,10 +193,11 @@ def api_show_location(request, pk):
             safe=False,
         )
 
+
 @require_http_methods(["GET"])
 def api_list_states(request):
 
-    states_objects = State.objects.all().order_by('name')
+    states_objects = State.objects.all().order_by("name")
 
     states = []
 

@@ -1,8 +1,8 @@
 import { NavLink } from "react-router-dom";
 
-function Nav()  {
-    return (
-      <nav className="navbar navbar-expand-lg navbar-light bg-light">
+function Nav() {
+  return (
+    <nav className="navbar navbar-expand-lg navbar-light bg-light">
       <div className="container-fluid">
         <NavLink className="navbar-brand" to="/">Conference GO</NavLink>
         <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -26,7 +26,7 @@ function Nav()  {
         </div>
       </div>
     </nav>
-    );
+  );
 }
 
 export default Nav;

@@ -23,9 +23,7 @@ def down(apps, schema):
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('presentations', '0001_initial'),
+        ("presentations", "0001_initial"),
     ]
 
-    operations = [
-        migrations.RunPython(up, down)
-    ]
+    operations = [migrations.RunPython(up, down)]

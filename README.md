@@ -1,5 +1,5 @@
 # Conference GO
-Conference-management solution designed for planning and running  conferences with attendees and presenters. Supports location, conference, and presentation creation and management. Features Django, React, and data interactions with RESTful APIs.
+Conference-management solution designed for planning and running conferences. Supports presentation, location, and attendee creation and management. Features Django, React, and data interactions with RESTful APIs.
 
 
 ## Design
@@ -12,15 +12,14 @@ Conference-management solution designed for planning and running  conferences wi
 
 
 ## Intended Market
-Companies who intend to have a hub for all things conferences and utilize a sophisticated solution for managing attendees, presenters, and presentations.
+Companies who intend to have a hub for all things conferences and utilize a sophisticated solution for managing presentations, locations, and attendees.
 
 
 ## Functionality
-- Create and view attendees
-- Create and view presenters
-- Create and view presentations
 - Create and view conferences
-- Create and view locations
+- Create presentations
+- Create locations
+- Create attendees
 
 
 ## Project Initialization

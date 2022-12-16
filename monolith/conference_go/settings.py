@@ -39,7 +39,7 @@ AUTH_USER_MODEL = "accounts.User"
 # Application definition
 
 INSTALLED_APPS = [
-    'djwto',
+    "djwto",
     "accounts.apps.AccountsConfig",
     "events.apps.EventsConfig",
     "presentations.apps.PresentationsConfig",
@@ -105,16 +105,16 @@ DATABASES["default"] = dj_database_url.config()
 
 AUTH_PASSWORD_VALIDATORS = [
     {
-        "NAME": "django.contrib.auth.password_validation.UserAttributeSimilarityValidator",
+        "NAME": "django.contrib.auth.password_validation.UserAttributeSimilarityValidator",  # noqa E502
     },
     {
-        "NAME": "django.contrib.auth.password_validation.MinimumLengthValidator",
+        "NAME": "django.contrib.auth.password_validation.MinimumLengthValidator",  # noqa E502
     },
     {
-        "NAME": "django.contrib.auth.password_validation.CommonPasswordValidator",
+        "NAME": "django.contrib.auth.password_validation.CommonPasswordValidator",  # noqa E502
     },
     {
-        "NAME": "django.contrib.auth.password_validation.NumericPasswordValidator",
+        "NAME": "django.contrib.auth.password_validation.NumericPasswordValidator",  # noqa E502
     },
 ]
 
