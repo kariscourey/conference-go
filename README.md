@@ -1,7 +1,6 @@
 # Conference GO
 Conference-management solution designed for planning and running conferences. Supports presentation, location, and attendee creation and management. Features Django, React, domain-driven design, microservices, and data interactions with RESTful APIs.
 
-
 ## Design
 - [Design summary](docs/design-summary.md)
 - [API design](docs/api-design.md)
